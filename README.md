@@ -14,7 +14,9 @@ With that being said, you may not be able to fully complete each challenge in th
 
 You are encouraged to use resources such as Microsoft's official Powershell documentation, forums (e.g. Reddit, Stack Exchange, Microsoft Learn), and learning platforms (e.g. LinkedIn Learning, Coursera, Udemy). **Please do not use generative AI to complete these challenges.** If you use an outside resource, you are encouraged to make a note in your code about what the resource was, and how to access it. We do not need formal citations.
 
-**If you have questions, please reach out to your HR point of contact and they will direct you to one of our IT staff members for assistance.**
+**If you have any technical questions, please visit our [SCB Code Interview: IT Administrators Q&A discussion board](https://github.com/Stylecraft-Builders/SCB-CodeInterview/discussions/1) for assistance.**
+
+**If you have questions about the hiring process, please reach out to your HR point of contact.**
 
 
 ## Getting Started
