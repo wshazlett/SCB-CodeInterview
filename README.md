@@ -6,11 +6,11 @@
 
 ## Introduction
 
-Thank you for your interest in becoming an IT Administrator here at Stylecraft! As a part of this role, you will be responsible for maintaining, extending, and creating scripts to automate various tasks. For standardization, submissions should be done in **Powershell**, and ideally should be able to work in Windows Powershell 5.1+ and Powershell Core 7.4+, though you do not have to test in both necessarily.
+Thank you for your interest in becoming an IT Administrator here at Stylecraft! As a part of this role, you will be responsible for maintaining, extending, and creating scripts to automate various tasks. For standardization, submissions should be done in **Powershell**, and ideally should be able to work in Windows Powershell 5.1+ and Powershell Core 7.5+, though you do not have to test in both necessarily.
 
-These challenges don't come with right or wrong answers, and aren't meant to disqualify any candidate. Each of these challenges are parts of actual problems that we have solved here at Stylecraft, or rely on skills necessary to solve problems we have faced. Our staff will review work for technical skill, problem solving techniques, and effective documentation.
+These challenges don't have right or wrong answers, and aren't meant to disqualify any candidate, but are designed to highlight your problem solving process. Each of these challenges are parts of actual problems that we have solved here at Stylecraft, or rely on skills necessary to solve problems we have faced. Our staff will review work for technical skill, problem solving techniques, and effective documentation.
 
-With that being said, you may not be able to fully complete each challenge in the timeframe given, and that's okay! You should attempt to complete as much of each challenge as possible. Each challenge has been given an time estimate based on how long it took to solve these problems originally. You may take more or less time to complete each one, and that's completely fine.
+With that being said, you may not be able to fully complete each challenge in the timeframe given, and that's okay! You should attempt to complete as much of each challenge as possible. Each challenge has been given a time estimate based on how long it took to solve these problems originally. You may take more or less time to complete each challenge, and that's fine.
 
 You are encouraged to use resources such as Microsoft's official Powershell documentation, forums (e.g. Reddit, Stack Exchange, Microsoft Learn), and learning platforms (e.g. LinkedIn Learning, Coursera, Udemy). **Please do not use generative AI to complete these challenges.** If you use an outside resource, you are encouraged to make a note in your code about what the resource was, and how to access it. We do not need formal citations.
 
@@ -29,10 +29,13 @@ If you are not familiar with using Git/GitHub, I highly recommend the following 
 - [LinkedIn Learning: Programming Foundations, Version Control with Git](https://www.linkedin.com/learning/programming-foundations-version-control-with-git-21044342/don-t-lose-your-work?u=2045532)
 - [LinkedIn Learning: Learning Git and GitHub](https://www.linkedin.com/learning/learning-git-and-github-23011330/welcome?u=2045532)
 
+### NOTE: When you are invited to look at this repository, you will receive a GUID that you will use to name your Git branch. Please only use this GUID when naming your branch so that we can track submissions without you needing to write your name in the branch name.
+
+For example, let's say I received the GUID  `efa44b29-89bd-11f0-bfc6-4c496cf734f5` in my email. I will use this to identify my Git branch in these examples. Please don't use this example GUID or your submission can't be considered.
 
 ### Cloning This Repository
 
-Here is a quick way to clone this repository using Git BASH (Git for Windows). If you are using Mac or Linux (probably BASH) then these will be the same commands.
+Here is a quick way to clone this repository using Git BASH (Git for Windows). If you are using Mac or Linux then these will be the same commands if you are using BASH.
 
 1. Clone the Repository
 
@@ -43,15 +46,15 @@ $ git clone https://github.com/Stylecraft-Builders/SCB-CodeInterview.git
 2. Create your OWN BRANCH (you can't commit to the main branch)
 
 ```BASH
-$ git checkout -b <yourname>-submission
+$ git checkout -b efa44b29-89bd-11f0-bfc6-4c496cf734f5
 ```
 
 3. Make sure you `git add . && git commit` relatively frequently. I recommend using `git tag` to tag each Challenge as you complete it. For example, `git tag challenge1-complete a5278c1`. You can optionally tag the start of work on a challenge if you would like as well. You don't need to perform these challenges in order.
 
 ```BASH
 $ git add . && git commit -m "Adds profile.xml to Challenge1 folder to finish Challenge1"
-[<yourname>-submission a5278c1] Adds profile.xml to Challenge1 folder to finish Challenge1
-...
+[efa44b29-89bd-11f0-bfc6-4c496cf734f5 a5278c1] Adds profile.xml to Challenge1 folder to finish Challenge1
+    ...
 
 $ git tag challenge1-complete a5278c1
 ```
@@ -60,10 +63,10 @@ $ git tag challenge1-complete a5278c1
 
 When you are ready to submit your code, you will want to perform a `git push` with all of your commits up to your personal branch, and then perform a pull request to the branch named `submit-here`.
 
-1. Push your code changes and tags to `origin/<yourname>-submission`
+1. Push your code changes and tags to `origin/<your-GUID>`
 
 ```BASH
-$ git push -u origin <yourname>-submission
+$ git push -u origin efa44b29-89bd-11f0-bfc6-4c496cf734f5
 $ git push --tags
 ```
 
