@@ -6,7 +6,7 @@
 
 ## Introduction
 
-Thank you for your interest in becoming an IT Administrator here at Stylecraft! As a part of this role, you will be responsible for maintaining, extending, and creating scripts to automate various tasks. For standardization, submissions should be done in **Powershell**, and ideally should be able to work in Windows Powershell 5.1+ and Powershell Core 7.5+, though you do not have to test in both necessarily.
+Thank you for your interest in becoming an IT Administrator here at Stylecraft! As a part of this role, you will be responsible for maintaining, extending, and creating scripts to automate various tasks. For standardization, submissions should be done in **Powershell**, and ideally should be able to work in Windows Powershell 5.1+ and Powershell Core 7.4+, though you do not have to test in both necessarily.
 
 These challenges don't have right or wrong answers, and aren't meant to disqualify any candidate, but are designed to highlight your problem solving process. Each of these challenges are parts of actual problems that we have solved here at Stylecraft, or rely on skills necessary to solve problems we have faced. Our staff will review work for technical skill, problem solving techniques, and effective documentation.
 
@@ -33,7 +33,7 @@ If you are not familiar with using Git/GitHub, I highly recommend the following 
 
 ### NOTE: When you are invited to look at this repository, you will receive a GUID that you will use to name your Git branch. Please only use this GUID when naming your branch so that we can track submissions without you needing to write your name in the branch name.
 
-For example, let's say I received the GUID  `efa44b29-89bd-11f0-bfc6-4c496cf734f5` in my email. I will use this to identify my Git branch in these examples. Please don't use this example GUID or your submission can't be considered.
+For example, let's say I received the GUID `efa44b29-89bd-11f0-bfc6-4c496cf734f5` in my email. I will use this to identify my Git branch in these examples. Please don't use this example GUID or your submission can't be considered.
 
 ### Cloning This Repository
 
@@ -45,17 +45,17 @@ Here is a quick way to clone this repository using Git BASH (Git for Windows). I
 $ git clone https://github.com/Stylecraft-Builders/SCB-CodeInterview.git
 ```
 
-2. Create your OWN BRANCH (you can't commit to the main branch)
+2. Create your OWN BRANCH (you can't commit to the main branch). Please use the form `submission/{GUID}` for the GitHub Actions to run successfully.
 
 ```BASH
-$ git checkout -b efa44b29-89bd-11f0-bfc6-4c496cf734f5
+$ git checkout -b submission/efa44b29-89bd-11f0-bfc6-4c496cf734f5
 ```
 
 3. Make sure you `git add . && git commit` relatively frequently. I recommend using `git tag` to tag each Challenge as you complete it. For example, `git tag challenge1-complete a5278c1`. You can optionally tag the start of work on a challenge if you would like as well. You don't need to perform these challenges in order.
 
 ```BASH
 $ git add . && git commit -m "Adds profile.xml to Challenge1 folder to finish Challenge1"
-[efa44b29-89bd-11f0-bfc6-4c496cf734f5 a5278c1] Adds profile.xml to Challenge1 folder to finish Challenge1
+[submission/efa44b29-89bd-11f0-bfc6-4c496cf734f5 a5278c1] Adds profile.xml to Challenge1 folder to finish Challenge1
     ...
 
 $ git tag challenge1-complete a5278c1
@@ -68,7 +68,7 @@ When you are ready to submit your code, you will want to perform a `git push` wi
 1. Push your code changes and tags to `origin/<your-GUID>`
 
 ```BASH
-$ git push -u origin efa44b29-89bd-11f0-bfc6-4c496cf734f5
+$ git push -u origin submission/efa44b29-89bd-11f0-bfc6-4c496cf734f5
 $ git push --tags
 ```
 
