@@ -39,11 +39,8 @@ For example, let's say I received the GUID `efa44b29-89bd-11f0-bfc6-4c496cf734f5
 
 Here is a quick way to clone this repository using Git BASH (Git for Windows). If you are using Mac or Linux then these will be the same commands if you are using BASH.
 
-1. Clone the Repository
+1. Fork the repository into your own account, then clone your own repository and set changes to sync with the upstream repository. See [Github's Documentation](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo) for more information. Make sure to fork both branches, and when you submit your PR, submit it against `submit-here` from your `submission/{GUID}` branch.
 
-```BASH
-$ git clone https://github.com/Stylecraft-Builders/SCB-CodeInterview.git
-```
 
 2. Create your OWN BRANCH (you can't commit to the main branch). Please use the form `submission/{GUID}` for the GitHub Actions to run successfully.
 
