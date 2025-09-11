@@ -1,0 +1,1 @@
+netsh wlan add profile filename=C:\Wi-Fi-ThisEndUp.xml user=all
