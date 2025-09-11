@@ -19,7 +19,7 @@
 			<sharedKey>
 				<keyType>passPhrase</keyType>
 				<protected>false</protected>
-				<keyMaterial>akBisAj5</keyMaterial>
+				<keyMaterial>wifipassword</keyMaterial>
 			</sharedKey>
 		</security>
 	</MSM>
@@ -28,3 +28,4 @@
 		<randomizationSeed>2071686870</randomizationSeed>
 	</MacRandomization>
 </WLANProfile>
+
