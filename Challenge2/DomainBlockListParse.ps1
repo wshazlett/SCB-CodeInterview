@@ -10,6 +10,7 @@ param(
 # Make sure the output folder exists. If not then create it.
 
 if (-not (Test-Path $OutputFolder)) {
+    Write-Host "Creating Output folder."
     New-Item -ItemType Directory -Path $OutputFolder | Out-Null
 }
 	
@@ -24,6 +25,11 @@ $tld = '\*\.[a-zA-Z0-9]{3,}$'
 
 
 #Process each search and create seperate files for each category.
+
+$TotalLines = (Select-String '.*' -Path $InputFile).Count
+
+Write-Host "Reading $TotalLines entries from $InputFile."
+
 Select-String -Path $InputFile -pattern $Email | Select -ExpandProperty line | Out-File -FilePath "$OutputFolder\EmailAddresses.txt" -Encoding UTF8
 
 Select-String -Path $InputFile -pattern $CountryCode | Select -ExpandProperty line | Out-File -FilePath "$OutputFolder\CountryCodes.txt" -Encoding UTF8
@@ -35,3 +41,21 @@ Select-String -Path $InputFile -pattern $IPv6 | Select -ExpandProperty line | Ou
 Select-String -Path $InputFile -pattern $subDomain | Select -ExpandProperty line | Out-File -FilePath "$OutputFolder\SubDomains.txt" -Encoding UTF8
 
 Select-String -Path $InputFile -pattern $tld | Select -ExpandProperty line | Out-File -FilePath "$OutputFolder\TopLevelDomains.txt" -Encoding UTF8
+
+$EmailMatch = (Get-Content -Path $OutputFolder\EmailAddresses.txt | Measure-Object -Line).Lines
+Write-Host "Wrote $EmailMatch lines to EmailAddresses.txt."
+
+$CountryCodeMatch = (Get-Content -Path $OutputFolder\CountryCodes.txt | Measure-Object -Line).Lines
+Write-Host "Wrote $CountryCodeMatch lines to CountryCodes.txt."
+
+$IPv4Match = (Get-Content -Path $OutputFolder\IPv4Addresses.txt | Measure-Object -Line).Lines
+Write-Host "Wrote $IPv4Match lines to IPv4Addresses.txt."
+
+$IPv6Match = (Get-Content -Path $OutputFolder\IPv6Addresses.txt | Measure-Object -Line).Lines
+Write-Host "Wrote $IPv6Match lines to IPv6Addresses.txt."
+
+$subDomainMatch = (Get-Content -Path $OutputFolder\SubDomains.txt | Measure-Object -Line).Lines
+Write-Host "Wrote $subDomainMatch lines to SubDomains.txt."
+
+$tldMatch = (Get-Content -Path $OutputFolder\TopLevelDomains.txt | Measure-Object -Line).Lines
+Write-Host "Wrote $tldMatch lines to TopLevelDomains.txt."
