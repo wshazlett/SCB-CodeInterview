@@ -13,6 +13,13 @@ if (-not (Test-Path $OutputFolder)) {
     Write-Host "Creating Output folder."
     New-Item -ItemType Directory -Path $OutputFolder | Out-Null
 }
+
+# Create a folder for the log file in the output folder.
+
+if (-not (Test-Path $OutputFolder\Logs)) {
+    Write-Host "Creating Log folder."
+    New-Item -ItemType Directory -Path $OutputFolder\Logs | Out-Null
+}
 	
 	
 # Setup our patterns to look for and store each pattern in a variable.
@@ -23,6 +30,7 @@ $IPv6 = '^[0-9a-fA-F]{1,}\:[0-9a-fA-F]{1,}\:[0-9a-fA-F]{1,}'
 $subDomain = '^[a-zA-Z-]{1,}\.[a-zA-Z]{2,}|^\*\.[a-zA-Z-]{3,}|^\*\@'
 $tld = '\*\.[a-zA-Z0-9]{3,}$'
 
+Start-Transcript -Path "$OutputFolder\Logs\DomainBlockListParse.log"
 
 #Process each search and create seperate files for each category.
 
@@ -30,17 +38,17 @@ $TotalLines = (Select-String '.*' -Path $InputFile).Count
 
 Write-Host "Reading $TotalLines entries from $InputFile."
 
-Select-String -Path $InputFile -pattern $Email | Select -ExpandProperty line | Out-File -FilePath "$OutputFolder\EmailAddresses.txt" -Encoding UTF8
+Select-String -Path $InputFile -pattern $Email | Select-Object -ExpandProperty line | Out-File -FilePath "$OutputFolder\EmailAddresses.txt" -Encoding UTF8
 
-Select-String -Path $InputFile -pattern $CountryCode | Select -ExpandProperty line | Out-File -FilePath "$OutputFolder\CountryCodes.txt" -Encoding UTF8
+Select-String -Path $InputFile -pattern $CountryCode | Select-Object -ExpandProperty line | Out-File -FilePath "$OutputFolder\CountryCodes.txt" -Encoding UTF8
 
-Select-String -Path $InputFile -pattern $IPv4 | Select -ExpandProperty line | Out-File -FilePath "$OutputFolder\IPv4Addresses.txt" -Encoding UTF8
+Select-String -Path $InputFile -pattern $IPv4 | Select-Object -ExpandProperty line | Out-File -FilePath "$OutputFolder\IPv4Addresses.txt" -Encoding UTF8
 
-Select-String -Path $InputFile -pattern $IPv6 | Select -ExpandProperty line | Out-File -FilePath "$OutputFolder\IPv6Addresses.txt" -Encoding UTF8
+Select-String -Path $InputFile -pattern $IPv6 | Select-Object -ExpandProperty line | Out-File -FilePath "$OutputFolder\IPv6Addresses.txt" -Encoding UTF8
 
-Select-String -Path $InputFile -pattern $subDomain | Select -ExpandProperty line | Out-File -FilePath "$OutputFolder\SubDomains.txt" -Encoding UTF8
+Select-String -Path $InputFile -pattern $subDomain | Select-Object -ExpandProperty line | Out-File -FilePath "$OutputFolder\SubDomains.txt" -Encoding UTF8
 
-Select-String -Path $InputFile -pattern $tld | Select -ExpandProperty line | Out-File -FilePath "$OutputFolder\TopLevelDomains.txt" -Encoding UTF8
+Select-String -Path $InputFile -pattern $tld | Select-Object -ExpandProperty line | Out-File -FilePath "$OutputFolder\TopLevelDomains.txt" -Encoding UTF8
 
 $EmailMatch = (Get-Content -Path $OutputFolder\EmailAddresses.txt | Measure-Object -Line).Lines
 Write-Host "Wrote $EmailMatch lines to EmailAddresses.txt."
@@ -59,3 +67,4 @@ Write-Host "Wrote $subDomainMatch lines to SubDomains.txt."
 
 $tldMatch = (Get-Content -Path $OutputFolder\TopLevelDomains.txt | Measure-Object -Line).Lines
 Write-Host "Wrote $tldMatch lines to TopLevelDomains.txt."
+Stop-Transcript
